@@ -1,0 +1,168 @@
+.newsletterBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F4FAFF;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.newsletterBlock:hover {
+  .newsletterBlockHeadline {
+    transition: 0.8s ease-out;
+    border-bottom: 5px solid #F26119;
+  }
+}
+
+.newsletterBlockImage {
+  margin-right: 8rem;
+  max-width: 950px;
+}
+
+.newsletterBlockRightSide {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 200px;
+}
+
+.newsletterBlockHeadline {
+  border-bottom: 5px solid #9FBFB55C;
+  margin-bottom: 2.5rem;
+  transition: 0.8s ease-out;
+}
+
+.input>input {
+  border-radius: 5px !important;
+}
+
+.input {
+  width: 500px;
+  height: 43px;
+  margin-right: 0.5rem;
+}
+
+.newsletterBlockButton {
+  background: transparent !important;
+  border: 1px solid #F26119 !important;
+  color: #F26119 !important;
+  border-radius: 5px !important;
+  width: 150px;
+}
+
+.newsletterBlockButton:hover {
+  background: #F26119 !important;
+  color: white !important;
+}
+
+.newsletterBlockForm {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+#page-document .newsletterBlock
+  {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+.ui.basic.segment.content-area {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.view-editview .newsletterBlock>.newsletterBlockImage {
+  width: 400px;
+  margin-right: 30px;
+}
+
+.view-editview .newsletterBlock>.newsletterBlockRightSide>.newsletterBlockHeadline {
+  font-size: 1.9rem;
+}
+
+.invalidEmail {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000px;
+  color: #F26119;
+}
+
+@media (max-width: 1590px) and (min-width: 1401px) {
+  .newsletterBlockImage {
+    width: 800px;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 1201px) {
+  .newsletterBlockImage {
+    width: 600px;
+  }
+
+  .newsletterBlockHeadline {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 800px) {
+  .newsletterBlockImage {
+    width: 300px;
+    margin-right: 30px;
+  }
+
+  .input {
+    height: 35px;
+    width: 300px;
+    margin-bottom: 5px;
+  }
+
+  .newsletterBlockButton{
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .newsletterBlockHeadline {
+    font-size: 2rem;
+  }
+
+  .newsletterBlockForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .newsletterBlockImage {
+    width: 250px;
+    margin-right: 30px;
+  }
+
+  .input {
+    height: 30px;
+    width: 200px;
+    margin-bottom: 5px;
+  }
+
+  .newsletterBlockButton{
+    height: 25px;
+    text-align: center;
+    padding: 0 !important;
+    width: 100px;
+  }
+
+  .newsletterBlockHeadline {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .newsletterBlockForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

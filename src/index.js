@@ -1,4 +1,4 @@
-import tableSVG from '@plone/volto/icons/table.svg';
+import emailSVG from '@plone/volto/icons/email.svg';
 import NewsletterView from './Newsletter/NewsletterView';
 import NewsletterEdit from './Newsletter/NewsletterEdit';
 
@@ -6,7 +6,7 @@ const applyConfig = (config) => {
   config.blocks.blocksConfig.newsletter = {
     id: 'newsletter',
     title: 'Newsletter',
-    icon: tableSVG,
+    icon: emailSVG,
     group: 'common',
     view: NewsletterView,
     edit: NewsletterEdit,

@@ -1,9 +1,8 @@
 import React from 'react';
 import NewsletterView from './NewsletterView';
 import BlockDataForm from '@plone/volto/components/manage/Form/BlockDataForm';
-import { Segment, Form } from 'semantic-ui-react';
-import { SidebarPortal, Field, Icon } from '@plone/volto/components';
-import tableSVG from '@plone/volto/icons/table.svg';
+import { SidebarPortal } from '@plone/volto/components';
+import './newsletterBlock.less';
 
 import getSchema from './schema';
 
