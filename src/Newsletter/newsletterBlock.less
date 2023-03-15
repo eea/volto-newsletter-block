@@ -1,39 +1,39 @@
 .newsletterBlock {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #F4FAFF;
-  margin-left: 0px !important;
+  justify-content: space-between;
   margin-right: 0px !important;
+  margin-left: 0px !important;
+  background-color: #f4faff;
 }
 
 .newsletterBlock:hover {
   .newsletterBlockHeadline {
+    border-bottom: 5px solid #f26119;
     transition: 0.8s ease-out;
-    border-bottom: 5px solid #F26119;
   }
 }
 
 .newsletterBlockImage {
-  margin-right: 8rem;
   max-width: 950px;
+  margin-right: 8rem;
 }
 
 .newsletterBlockRightSide {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-right: 200px;
 }
 
 .newsletterBlockHeadline {
-  border-bottom: 5px solid #9FBFB55C;
+  border-bottom: 5px solid #9fbfb55c;
   margin-bottom: 2.5rem;
   transition: 0.8s ease-out;
 }
 
-.input>input {
+.input > input {
   border-radius: 5px !important;
 }
 
@@ -44,48 +44,50 @@
 }
 
 .newsletterBlockButton {
-  background: transparent !important;
-  border: 1px solid #F26119 !important;
-  color: #F26119 !important;
-  border-radius: 5px !important;
   width: 150px;
+  border: 1px solid #f26119 !important;
+  background: transparent !important;
+  border-radius: 5px !important;
+  color: #f26119 !important;
 }
 
 .newsletterBlockButton:hover {
-  background: #F26119 !important;
+  background: #f26119 !important;
   color: white !important;
 }
 
 .newsletterBlockForm {
   display: flex;
-  justify-content: center;
   align-items: stretch;
+  justify-content: center;
 }
 
 #page-document .newsletterBlock {
-  max-width: 100% !important;
   width: 100%;
+  max-width: 100% !important;
 }
 
 .ui.basic.segment.content-area {
-  margin-bottom: 0px;
   padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-.view-editview .newsletterBlock>.newsletterBlockImage {
+.view-editview .newsletterBlock > .newsletterBlockImage {
   width: 400px;
   margin-right: 30px;
 }
 
-.view-editview .newsletterBlock>.newsletterBlockRightSide>.newsletterBlockHeadline {
+.view-editview.newsletterBlock
+  > .newsletterBlockRightSide
+  > .newsletterBlockHeadline {
   font-size: 1.9rem;
 }
 
 .invalidEmail {
-  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-  transform: translate3d(0, 0, 0);
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  color: #f26119;
   perspective: 1000px;
-  color: #F26119;
+  transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 1590px) and (min-width: 1401px) {
@@ -111,15 +113,15 @@
   }
 
   .input {
-    height: 35px;
     width: 300px;
+    height: 35px;
     margin-bottom: 5px;
   }
 
   .newsletterBlockButton {
     height: 35px;
-    text-align: center;
     font-size: 15px;
+    text-align: center;
   }
 
   .newsletterBlockHeadline {
@@ -129,8 +131,8 @@
   .newsletterBlockForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -141,27 +143,27 @@
   }
 
   .input {
-    height: 30px;
     width: 200px;
+    height: 30px;
     margin-bottom: 5px;
   }
 
   .newsletterBlockButton {
-    height: 25px;
-    text-align: center;
-    padding: 0 !important;
     width: 100px;
+    height: 25px;
+    padding: 0 !important;
+    text-align: center;
   }
 
   .newsletterBlockHeadline {
-    font-size: 1.5rem;
     margin-bottom: 15px;
+    font-size: 1.5rem;
   }
 
   .newsletterBlockForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 }
