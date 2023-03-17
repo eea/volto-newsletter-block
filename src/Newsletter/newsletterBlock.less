@@ -1,10 +1,20 @@
 .newsletterBlock {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-right: 0px !important;
   margin-left: 0px !important;
   background-color: #f4faff;
+}
+
+.newsletterBlockRightSide,
+.newsletterBlockLeftSide {
+  width: 50%;
+}
+
+.newsletterBlockLeftSide {
+  line-height: 0;
 }
 
 .newsletterBlock:hover {
@@ -15,8 +25,7 @@
 }
 
 .newsletterBlockImage {
-  max-width: 950px;
-  margin-right: 8rem;
+  width: 100%;
 }
 
 .newsletterBlockRightSide {
@@ -24,7 +33,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 200px;
 }
 
 .newsletterBlockHeadline {
@@ -33,11 +41,11 @@
   transition: 0.8s ease-out;
 }
 
-.newsletterBlockForm > .input > input {
+.newsletterBlockForm>.input>input {
   border-radius: 5px !important;
 }
 
-.newsletterBlockForm > .input {
+.newsletterBlockForm>.input {
   width: 500px;
   height: 43px;
   margin-right: 0.5rem;
@@ -72,14 +80,12 @@
   margin-bottom: 0px;
 }
 
-.view-editview .newsletterBlock > .newsletterBlockImage {
+.view-editview .newsletterBlock>.newsletterBlockImage {
   width: 400px;
   margin-right: 30px;
 }
 
-.view-editview.newsletterBlock
-  > .newsletterBlockRightSide
-  > .newsletterBlockHeadline {
+.view-editview.newsletterBlock>.newsletterBlockRightSide>.newsletterBlockHeadline {
   font-size: 1.9rem;
 }
 
@@ -92,13 +98,14 @@
 
 @media (max-width: 1590px) and (min-width: 1401px) {
   .newsletterBlockImage {
-    width: 800px;
+    width: 100%;
   }
 }
 
 @media (max-width: 1400px) and (min-width: 1201px) {
   .newsletterBlockImage {
-    width: 600px;
+    width: 100%;
+    height: fit-content;
   }
 
   .newsletterBlockHeadline {
@@ -108,11 +115,12 @@
 
 @media (max-width: 1200px) and (min-width: 800px) {
   .newsletterBlockImage {
-    width: 300px;
+    width: 100%;
+    height: fit-content;
     margin-right: 30px;
   }
 
-  .newsletterBlockForm > .input {
+  .newsletterBlockForm>.input {
     width: 300px;
     height: 35px;
     margin-bottom: 5px;
@@ -138,11 +146,11 @@
 
 @media (max-width: 800px) {
   .newsletterBlockImage {
-    width: 250px;
+    width: 100%;
     margin-right: 30px;
   }
 
-  .newsletterBlockForm > .input {
+  .newsletterBlockForm>.input {
     width: 200px;
     height: 30px;
     margin-bottom: 5px;

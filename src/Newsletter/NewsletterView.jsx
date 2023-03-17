@@ -28,16 +28,18 @@ const NewsletterView = (props) => {
   return (
     <div className="newsletterBlock">
       {imgSrc && (
-        <img
-          className="newsletterBlockImage"
-          src={
-            isInternalURL(imgSrc)
-              ? `${flattenToAppURL(imgSrc)}/@@images/image`
-              : imgSrc
-          }
-          alt=""
-          loading="lazy"
-        />
+        <div className="newsletterBlockLeftSide">
+          <img
+            className="newsletterBlockImage"
+            src={
+              isInternalURL(imgSrc)
+                ? `${flattenToAppURL(imgSrc)}/@@images/image`
+                : imgSrc
+            }
+            alt=""
+            loading="lazy"
+          />
+        </div>
       )}
       <div className="newsletterBlockRightSide">
         <h1 className="newsletterBlockHeadline">{headline}</h1>
