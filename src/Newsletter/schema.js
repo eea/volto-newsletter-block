@@ -6,7 +6,7 @@ export default (props) => {
       {
         id: 'default',
         title: 'Default',
-        fields: ['imgSrc', 'headline', 'buttonText', 'buttonLink'],
+        fields: ['imgSrc', 'headline', 'text', 'buttonText', 'buttonLink'],
       },
     ],
 
@@ -17,6 +17,9 @@ export default (props) => {
       },
       headline: {
         title: 'Headline',
+      },
+      text: {
+        title: 'Button Text',
       },
       buttonText: {
         title: 'Button Text',
