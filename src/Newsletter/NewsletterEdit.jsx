@@ -3,6 +3,7 @@ import NewsletterView from './NewsletterView';
 import BlockDataForm from '@plone/volto/components/manage/Form/BlockDataForm';
 import { SidebarPortal } from '@plone/volto/components';
 import './newsletterBlock.less';
+import { BodyClass } from '@plone/volto/helpers';
 
 import getSchema from './schema';
 
@@ -11,6 +12,7 @@ const NewsletterEdit = (props) => {
 
   return (
     <>
+      <BodyClass className="with-newsletter-block" />
       <NewsletterView {...props} />
       <SidebarPortal selected={props.selected}>
         <BlockDataForm

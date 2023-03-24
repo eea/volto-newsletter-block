@@ -8,6 +8,7 @@ import { Button } from 'semantic-ui-react';
 import { useHistory } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
+import { BodyClass } from '@plone/volto/helpers';
 
 import './newsletterBlock.less';
 
@@ -16,41 +17,44 @@ const NewsletterView = (props) => {
   const { imgSrc, buttonText, text, headline } = props.data;
 
   return (
-    <div className="newsletterBlock">
-      {imgSrc && (
-        <div className="newsletterBlockLeftSide">
-          <img
-            className="newsletterBlockImage"
-            src={
-              isInternalURL(imgSrc)
-                ? `${flattenToAppURL(imgSrc)}/@@images/image`
-                : imgSrc
-            }
-            alt=""
-            loading="lazy"
-          />
-        </div>
-      )}
-      <div className="newsletterBlockRightSide">
-        <h1 className="newsletterBlockHeadline">{headline}</h1>
+    <>
+      <BodyClass className="with-newsletter-block" />
+      <div className="newsletterBlock">
+        {imgSrc && (
+          <div className="newsletterBlockLeftSide">
+            <img
+              className="newsletterBlockImage"
+              src={
+                isInternalURL(imgSrc)
+                  ? `${flattenToAppURL(imgSrc)}/@@images/image`
+                  : imgSrc
+              }
+              alt=""
+              loading="lazy"
+            />
+          </div>
+        )}
+        <div className="newsletterBlockRightSide">
+          <h1 className="newsletterBlockHeadline">{headline}</h1>
 
-        <div>
-          {buttonText && (
-            <>
-              <p className="newsletterBlockText">{text}</p>
-              <div className="newsletterBlockForm">
-                <Button
-                  onClick={() => history.push('/newsletter-form')}
-                  className="newsletterBlockButton"
-                >
-                  {buttonText}
-                </Button>
-              </div>
-            </>
-          )}
+          <div>
+            {buttonText && (
+              <>
+                <p className="newsletterBlockText">{text}</p>
+                <div className="newsletterBlockForm">
+                  <Button
+                    onClick={() => history.push('/newsletter-form')}
+                    className="newsletterBlockButton"
+                  >
+                    {buttonText}
+                  </Button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
