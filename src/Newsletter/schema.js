@@ -19,7 +19,7 @@ export default (props) => {
         title: 'Headline',
       },
       text: {
-        title: 'Button Text',
+        title: 'Text',
       },
       buttonText: {
         title: 'Button Text',
