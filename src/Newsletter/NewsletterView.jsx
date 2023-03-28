@@ -35,7 +35,7 @@ const NewsletterView = (props) => {
           </div>
         )}
         <div className="newsletterBlockRightSide">
-          <h1 className="newsletterBlockHeadline">{headline}</h1>
+          <h2 className="newsletterBlockHeadline">{headline}</h2>
 
           <div>
             {buttonText && (
