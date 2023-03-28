@@ -18,6 +18,12 @@ const applyConfig = (config) => {
       view: [],
     },
   };
+
+  config.blocks.blocksConfig.newsletter = {
+    ...config.blocks.blocksConfig.hero_image_left,
+    restricted: true,
+  };
+
   return config;
 };
 
