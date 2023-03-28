@@ -6,13 +6,16 @@ body.with-newsletter-block {
 }
 
 .newsletterBlock {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+  background-color: #f4faff;
+}
+
+.newsletterBlock > .newsletter {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-  background-color: #f4faff;
 }
 
 .newsletterBlockText,
@@ -24,6 +27,10 @@ body.with-newsletter-block {
 .newsletterBlockRightSide,
 .newsletterBlockLeftSide {
   width: 50%;
+}
+
+.newsletterBlockRightSide {
+  padding: 1rem 0;
 }
 
 .newsletterBlockLeftSide {
@@ -81,11 +88,6 @@ body.with-newsletter-block {
   display: flex;
   align-items: stretch;
   justify-content: center;
-}
-
-#page-document .newsletterBlock {
-  width: 100%;
-  max-width: 100% !important;
 }
 
 .view-editview .newsletterBlock > .newsletterBlockImage {
@@ -174,5 +176,20 @@ body.with-newsletter-block {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .newsletterBlock .newsletter {
+    flex-flow: column-reverse;
+
+    .newsletterBlockLeftSide,
+    .newsletterBlockRightSide {
+      width: 100%;
+    }
+
+    .newsletterBlockRightSide {
+      padding: 4rem 1.25rem;
+    }
   }
 }
