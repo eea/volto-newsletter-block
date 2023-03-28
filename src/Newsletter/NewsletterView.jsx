@@ -4,8 +4,7 @@ import {
   isInternalURL,
   withBlockExtensions,
 } from '@plone/volto/helpers';
-import { Button } from 'semantic-ui-react';
-import { useHistory } from 'react-router-dom';
+import { UniversalLink } from '@plone/volto/components';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 import { BodyClass } from '@plone/volto/helpers';
@@ -13,8 +12,14 @@ import { BodyClass } from '@plone/volto/helpers';
 import './newsletterBlock.less';
 
 const NewsletterView = (props) => {
-  const history = useHistory();
-  const { imgSrc, buttonText, text, headline } = props.data;
+  const {
+    imgSrc,
+    buttonText,
+    text,
+    headline,
+    buttonLink,
+    openLinkInNewTab,
+  } = props.data;
 
   return (
     <>
@@ -42,12 +47,13 @@ const NewsletterView = (props) => {
               <>
                 <p className="newsletterBlockText">{text}</p>
                 <div className="newsletterBlockForm">
-                  <Button
-                    onClick={() => history.push('/newsletter-form')}
-                    className="newsletterBlockButton"
+                  <UniversalLink
+                    href={buttonLink ?? ''}
+                    openLinkInNewTab={openLinkInNewTab}
+                    className="ui button newsletterBlockButton"
                   >
                     {buttonText}
-                  </Button>
+                  </UniversalLink>
                 </div>
               </>
             )}
