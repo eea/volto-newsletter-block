@@ -5,7 +5,6 @@ import {
   withBlockExtensions,
 } from '@plone/volto/helpers';
 import { UniversalLink } from '@plone/volto/components';
-import { useHistory } from 'react-router-dom';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 import { BodyClass } from '@plone/volto/helpers';
