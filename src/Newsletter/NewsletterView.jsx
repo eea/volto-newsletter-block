@@ -32,7 +32,7 @@ const NewsletterView = (props) => {
                 className="newsletterBlockImage"
                 src={
                   isInternalURL(imgSrc)
-                    ? `${flattenToAppURL(imgSrc)}/@@images/image`
+                    ? `${flattenToAppURL(imgSrc)}/@@images/image/great`
                     : imgSrc
                 }
                 alt=""
