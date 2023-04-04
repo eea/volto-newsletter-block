@@ -42,7 +42,7 @@ const NewsletterView = (props) => {
           )}
           <div className="newsletterBlockRightSide">
             <h2 className="newsletterBlockHeadline">
-              <a href="/newsletter-form">{headline}</a>
+              <a href="/newsletters-form">{headline}</a>
             </h2>
             <div>
               {buttonText && (
