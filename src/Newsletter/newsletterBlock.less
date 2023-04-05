@@ -6,8 +6,17 @@ body.with-newsletter-block {
 }
 
 .newsletterBlock {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+  position: relative;
+  text-align: center;
+}
+
+.newsletterBlock::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
   background-color: #f4faff;
 }
 
@@ -193,7 +202,7 @@ body.with-newsletter-block {
     }
 
     .newsletterBlockRightSide {
-      padding: 4rem 1.25rem;
+      padding: 4rem 1rem;
     }
 
     .newsletterBlockImage {
