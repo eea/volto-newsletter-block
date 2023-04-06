@@ -24,7 +24,7 @@ const NewsletterView = (props) => {
   return (
     <>
       <BodyClass className="with-newsletter-block" />
-      <div className="newsletterBlock wide full-width">
+      <div className="newsletterBlock has--size--half_width_left">
         <div className="newsletter">
           {imgSrc && (
             <div className="newsletterBlockLeftSide">
