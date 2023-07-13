@@ -21,6 +21,7 @@ export default (props) => {
       imgSrc: {
         title: 'Image',
         widget: 'attachedimage',
+        selectedItemAttrs: ['image_field', 'image_scales', '@type'],
       },
       headline: {
         title: 'Headline',
