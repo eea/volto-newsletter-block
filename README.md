@@ -23,9 +23,22 @@ Demo GIF
 
 ## Getting started
 
+### Try volto-newsletter-block with Docker
+
+      git clone https://github.com/eea/volto-newsletter-block.git
+      cd volto-newsletter-block
+      make
+      make start
+
+Go to http://localhost:3000
+
 ### Add volto-newsletter-block to your Volto project
 
 1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
+   ```
 
 1. Start Volto frontend
 
