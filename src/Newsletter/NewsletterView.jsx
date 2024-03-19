@@ -12,14 +12,8 @@ import { BodyClass } from '@plone/volto/helpers';
 import './newsletterBlock.less';
 
 const NewsletterView = (props) => {
-  const {
-    imgSrc,
-    buttonText,
-    text,
-    headline,
-    buttonLink,
-    openLinkInNewTab,
-  } = props.data;
+  const { imgSrc, buttonText, text, headline, buttonLink, openLinkInNewTab } =
+    props.data;
 
   return (
     <>
