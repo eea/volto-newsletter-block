@@ -9,14 +9,8 @@ import { getImageScaleParams } from '@eeacms/volto-newsletter-block/Newsletter/h
 import './newsletterBlock.less';
 
 const NewsletterView = (props) => {
-  const {
-    imgSrc,
-    buttonText,
-    text,
-    headline,
-    buttonLink,
-    openLinkInNewTab,
-  } = props.data;
+  const { imgSrc, buttonText, text, headline, buttonLink, openLinkInNewTab } =
+    props.data;
 
   const imageScaleParams = getImageScaleParams(imgSrc, 'great');
   return (
