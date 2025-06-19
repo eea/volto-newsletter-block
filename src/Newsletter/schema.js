@@ -1,4 +1,4 @@
-export default (props) => {
+const NewsletterSchema = (props) => {
   return {
     title: 'Hero Image Left',
 
@@ -45,3 +45,5 @@ export default (props) => {
     required: [],
   };
 };
+
+export default NewsletterSchema;
