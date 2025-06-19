@@ -4,7 +4,7 @@ import { UniversalLink } from '@plone/volto/components';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 import { BodyClass } from '@plone/volto/helpers';
-import { getImageScaleParams } from '@eeacms/volto-newsletter-block/Newsletter/helpers';
+import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
 
 import './newsletterBlock.less';
 
