@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git@github.com:eea/volto-newsletter-block.git"
   },
+  "addons": [
+    "@eeacms/volto-object-widget"
+  ],
   "dependencies": {
     "@eeacms/volto-object-widget": "eea/volto-object-widget#develop"
   },
