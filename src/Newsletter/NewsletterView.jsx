@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-  flattenToAppURL,
-  isInternalURL,
-  withBlockExtensions,
-} from '@plone/volto/helpers';
+import { withBlockExtensions } from '@plone/volto/helpers';
 import { UniversalLink } from '@plone/volto/components';
 import { injectIntl } from 'react-intl';
 import { compose } from 'redux';
 import { BodyClass } from '@plone/volto/helpers';
+import { getImageScaleParams } from '@eeacms/volto-object-widget/helpers';
 
 import './newsletterBlock.less';
 
@@ -15,6 +12,7 @@ const NewsletterView = (props) => {
   const { imgSrc, buttonText, text, headline, buttonLink, openLinkInNewTab } =
     props.data;
 
+  const imageScaleParams = getImageScaleParams(imgSrc, 'great');
   return (
     <>
       <BodyClass className="with-newsletter-block" />
@@ -24,11 +22,9 @@ const NewsletterView = (props) => {
             <div className="newsletterBlockLeftSide">
               <img
                 className="newsletterBlockImage"
-                src={
-                  isInternalURL(imgSrc)
-                    ? `${flattenToAppURL(imgSrc)}/@@images/image/great`
-                    : imgSrc
-                }
+                src={imageScaleParams?.download}
+                width={imageScaleParams?.width ?? '100%'}
+                height={imageScaleParams?.height ?? 'auto'}
                 alt=""
                 loading="lazy"
               />
