@@ -3,16 +3,16 @@
 [![Releases](https://img.shields.io/github/v/release/eea/volto-newsletter-block)](https://github.com/eea/volto-newsletter-block/releases)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-newsletter-block%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-newsletter-block/job/master/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-master)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-master)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-master)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-master)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-newsletter-block%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-newsletter-block/job/develop/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-develop)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-develop)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-develop)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block-develop)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&branch=develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block&branch=develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&branch=develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block&branch=develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&branch=develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block&branch=develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-newsletter-block&branch=develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-newsletter-block&branch=develop)
 
 
 [Volto](https://github.com/plone/volto) add-on
@@ -80,6 +80,65 @@ See [RELEASE.md](https://github.com/eea/volto-newsletter-block/blob/master/RELEA
 ## How to contribute
 
 See [DEVELOP.md](https://github.com/eea/volto-newsletter-block/blob/master/DEVELOP.md).
+
+## Secret Scanning
+
+This repository uses the Betterleaks GitHub Action to scan the current
+repository content on every push and pull request. The scan uses the rules in
+`.gitleaks.toml` and uploads a `betterleaks-report` artifact when a finding is
+detected.
+
+If the optional SMTP secrets are configured, failed scans also send an email to
+the last commit committer. The workflow expects these repository or
+organization secrets:
+
+- `SMTP_URL`
+- `SMTP_PORT` (optional, defaults to `25`)
+- `SMTP_EMAIL`
+- `SMTP_PASSWORD` (optional if the SMTP server does not require authentication)
+
+Port `465` is sent with direct TLS; other ports use the default SMTP handshake.
+The email includes a short finding summary from the redacted Betterleaks report,
+including the redacted matched line from each finding.
+
+There are three common outcomes:
+
+1. **Everything is OK.** The `Betterleaks / Scan for secrets` check is green and
+   no action is needed. Regular references to runtime values are OK, for example:
+
+   ```js
+   const tokenFromCookie = req.universalCookies.get('auth_token');
+   ```
+
+2. **A real secret was found.** The check is red and the workflow log asks you to
+   download the `betterleaks-report` artifact. Open the artifact from the GitHub
+   Actions run and check the reported file, line and rule. Remove the committed
+   value, move it to the proper secret store, and rotate it if it was exposed.
+   A report entry looks like this:
+
+   ```json
+   {
+     "RuleID": "secret-literal-assignment",
+     "File": "src/config.js",
+     "StartLine": 12,
+     "Secret": "[REDACTED]"
+   }
+   ```
+
+3. **The finding is a false positive.** Keep the value only if it is clearly not
+   sensitive, such as a test fixture, placeholder, or public example. Add
+   `betterleaks:allow` on the same line and include a short explanation in the
+   pull request.
+
+   ```js
+   const testPassword = 'admin'; //betterleaks:allow
+   ```
+
+   ```yaml
+   password: "admin" #betterleaks:allow
+   ```
+
+Do not add `betterleaks:allow` to real credentials.
 
 ## Copyright and license
 
